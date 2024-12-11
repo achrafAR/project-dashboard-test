@@ -14,7 +14,7 @@ const MainDashboard = () => {
         <div className="menu-links">
           <ul>
             <li><Link to="/dashboard/users">Users</Link></li>
-            <li><a href="#classes">Classes</a></li>
+            <li><Link to="/dashboard/classes">Classes</Link></li>
             <li><a href="#attendances">Attendances</a></li>
             <li><a href="#reports">Reports</a></li>
             <li><a href="#settings">Settings</a></li>

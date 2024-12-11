@@ -1,0 +1,49 @@
+.container-class{
+    width: 90%;
+    margin-left: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.class-table{
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.class-tr th{
+    padding: 10px ;
+    border: 1px solid #ddd;
+
+}
+
+.class-tr th:nth-child(1), 
+  .class-tr td:nth-child(1) {
+    width: 5%; 
+  }
+
+  .class-tr th:nth-child(6), .class-tr td:nth-child(6) {
+    width: 15%; 
+  }
+
+  
+  .class-tr th:nth-child(2), .class-tr td:nth-child(2), 
+  .class-tr th:nth-child(3), .class-tr td:nth-child(3), 
+  .class-tr th:nth-child(4), .class-tr td:nth-child(4),
+  .class-tr th:nth-child(5), .class-tr td:nth-child(5) {
+    width: 20%; 
+  }
+
+  .class-tr button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .class-tr button:hover{
+    background-color: #0056b3;
+
+  }
+
