@@ -47,24 +47,26 @@
     width: 90%;
     font-family: Arial, sans-serif;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   
  
   
-  .form {
+  .form-user {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
   }
   
-  input {
+  .form-user input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     flex: 1;
   }
   
-  .user-table button {
+  .user-td button {
     padding: 10px 15px;
     background-color: #007bff;
     color: white;
@@ -72,9 +74,27 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .user-td button:nth-child(2){
+    margin-left: 10px;
+  }
   
   .user-table button:hover {
     background-color: #0056b3;
+  }
+
+  .form-user button{
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-user button:hover{
+    background-color: #0056b3;
+
   }
   
   .user-table {
@@ -91,20 +111,20 @@
     border: 1px solid #ddd;
   }
 
-  .user-tr th:nth-child(1), 
-  .user-tr td:nth-child(1) {
+ .user-tr th:nth-child(1), 
+  .user-td td:nth-child(1) {
     width: 5%; 
   }
 
-  .user-tr th:nth-child(5), .user-tr td:nth-child(5) {
-    width: 15%; 
+  .user-tr th:nth-child(5), .user-td td:nth-child(5) {
+    width: 12%; 
   }
 
   
-  .user-tr th:nth-child(2), .user-tr td:nth-child(2), 
-  .user-tr th:nth-child(3), .user-tr td:nth-child(3), 
-  .user-tr th:nth-child(4), .user-tr td:nth-child(4) {
-    width: 27%; 
+  .user-tr th:nth-child(2), .user-td td:nth-child(2), 
+  .user-tr th:nth-child(3), .user-td td:nth-child(3), 
+  .user-tr th:nth-child(4), .user-td td:nth-child(4) {
+    width: 20%; 
   }
   
   th {
@@ -114,9 +134,12 @@
   tr:hover {
     background-color: #f1f1f1;
   }
-  
-  button + button {
-    margin-left: 10px;
+
+  .search-bar-user input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
+ 
   

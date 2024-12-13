@@ -5,6 +5,10 @@ function Users() {
   const [users, setUsers] = useState([
     { id: 1, firstName: 'John', lastName: 'Doe', phone: '123-456-7890' },
     { id: 2, firstName: 'Jane', lastName: 'Smith', phone: '987-654-3210' },
+    { id: 3, firstName: 'ach', lastName: 'Doe', phone: '123-456-7890' },
+    { id: 4, firstName: 'nour', lastName: 'Smith', phone: '987-654-3210' },
+    { id: 5, firstName: 'omar', lastName: 'Doe', phone: '123-456-7890' },
+    { id: 6, firstName: 'mira', lastName: 'Smith', phone: '987-654-3210' },
   ]);
 
   const [formData, setFormData] = useState({ id: '', firstName: '', lastName: '', phone: '' });
@@ -31,9 +35,14 @@ function Users() {
     }
   };
 
-  const handleDeleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+  const handleDeleteUser = (id, name) => {
+    const confirmDelete = window.confirm(`Are you sure you want to delete the class "${name}"?`);
+    if (confirmDelete) {
+        setUsers(users.filter((user) => user.id !== id));
+    }
   };
+
+
 
   const handleEditUser = (id) => {
     const userToEdit = users.find((user) => user.id === id);
@@ -67,17 +76,17 @@ function Users() {
   return (
     <div className="container-user">
       {/* Search Bar */}
-      <div className="search-bar">
+      <div className="search-bar-user">
         <input
           type="text"
-          placeholder="Search by ID, First Name, or Last Name"
+          placeholder="Search by ID, Name"
           value={searchQuery}
           onChange={handleSearchChange}
         />
       </div>
 
       {/* Form */}
-      <div className="form">
+      <div className="form-user">
         <input
           type="text"
           name="firstName"
@@ -105,8 +114,8 @@ function Users() {
           <button onClick={handleAddUser}>Add</button>
         )}
       </div>
-
-      <table className='user-table'>
+            <div className='user-table-container'>
+            <table className='user-table'>
         <thead className='user-thead'> 
           <tr className='user-tr'>
             <th>ID</th>
@@ -125,12 +134,14 @@ function Users() {
               <td>{user.phone}</td>
               <td>
                 <button onClick={() => handleEditUser(user.id)}>Edit</button>
-                <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
+                <button onClick={() => handleDeleteUser(user.id, user.firstName)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+            </div>
+      
     </div>
   );
 }
