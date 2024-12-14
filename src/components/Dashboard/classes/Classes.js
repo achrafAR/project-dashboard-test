@@ -43,6 +43,8 @@ function Classes() {
   ]);
   const [formData, setFormData] = useState({id: "",className: "",numberUser: "",space: "",PTName: "",});
   const [searchQuery, setSearchQuery] = useState('');
+  const [editingId, setEditingId] = useState(null);
+
 
   const handleInputChange = (e) => {
     const {name,value}= e.target;
@@ -65,6 +67,24 @@ function Classes() {
     } else {
       alert("Please fill out all fields!");
     }
+  };
+
+  const handleEditClass = (id) => {
+    const classToEdit = classes.find((classItem) => classItem.id === id);
+    setFormData(classToEdit);
+    setEditingId(id);
+  };
+
+  const handleUpdateClass = () => {
+    setClasses(
+      classes.map((classItem) =>
+        classItem.id === editingId
+          ? { ...classItem, className: formData.className, numberUser: formData.numberUser, space: formData.space, PTName: formData.PTName }
+          : classItem
+      )
+    );
+    setFormData({ id: '', className: '', numberUser: '', space: '', PTName: '' });
+    setEditingId(null);
   };
 
   const handleSearchChange = (e) => {
@@ -126,8 +146,11 @@ function Classes() {
           value={formData.PTName}
           onChange={handleInputChange}
         />
-        <button onClick={handleAddClass}>Add</button>
-      </div>
+{editingId ? (
+          <button onClick={handleUpdateClass}>Update</button>
+        ) : (
+          <button onClick={handleAddClass}>Add</button>
+        )}      </div>
       <div className="class-table-container">
         <table className="class-table">
           <thead>
@@ -149,7 +172,7 @@ function Classes() {
                 <td>{classItem.space}</td>
                 <td>{classItem.PTName}</td>
                 <td>
-                  <button>Edit</button>
+                <button onClick={() => handleEditClass(classItem.id)}>Edit</button>
                   <button
                     onClick={() =>
                       handleDeleteClass(classItem.id, classItem.className)
